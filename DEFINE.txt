@@ -1,0 +1,27 @@
+%IDC_PRJNAMELB      = 101
+%IDC_PRJNAMETB      = 102
+%IDC_BASEDIRLB      = 103
+%IDC_BASEDIRTB      = 104
+%IDC_BASEDIRSELBTN  = 105
+%IDC_SRCLB          = 106
+%IDC_SRCTB          = 107
+%IDC_SRCSELBTN      = 108
+%IDC_LIBLB          = 109
+%IDC_LIBTB          = 110
+%IDC_LIBSELBTN      = 111
+%IDC_ANTLB          = 112
+%IDC_ANTTB          = 113
+%IDC_ANTSELBTN      = 114
+%IDC_JDKLB          = 115
+%IDC_JDKTB          = 116
+%IDC_JDKSELBTN      = 117
+
+%IDC_MAINLB         = 118
+%IDC_MAINTB         = 119
+%IDC_MAKEBUILDBTN   = 120 '创建build.xml文件按钮
+%IDC_COMPILEBTN     = 121 '编译按钮
+%IDC_RUNBTN         = 122 '运行按钮
+
+%IDC_SAVESETTINGBTN = 123 '保存配置
+%IDC_ENCODELB       = 124 '编译编码
+%IDC_ENCODECB       = 125 '编译编码

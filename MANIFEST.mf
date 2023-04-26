@@ -1,0 +1,9 @@
+Main-Class: net.cneri.pdm.pdmjsvr.PdmJSvr
+Import-Package: COM.metaphasetech.taskutil.omf.OMF,
+ COM.metaphasetech.tfw.LogoutException,
+ COM.metaphasetech.tfw.MTIInit,
+ COM.metaphasetech.tfw.MfailException,
+ COM.metaphasetech.tfw.TaskContext,
+ COM.metaphasetech.util.LoginContext,
+ COM.metaphasetech.util.MTILoginInf,
+ com.ufc.tccommunication.tc2005sr1.helper.UserLogin

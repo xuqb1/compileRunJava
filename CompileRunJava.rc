@@ -1,0 +1,35 @@
+#include "resource.h"
+
+//App_Icon   ICON     "HitGame.ico"
+//Target     BITMAP   "Target.bmp"
+
+//FANFARE    SOUND   "Fanfare.wav"
+//MISS       SOUND   "Missed.wav"
+//HIT        SOUND   "Hit.wav"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 1, 0, 0, 0
+PRODUCTVERSION 1, 0, 0, 0
+FILEOS VOS_WINDOWS32
+FILETYPE VFT_APP
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName",      "xsoft, Inc.\0"
+      VALUE "FileDescription",  "Application\0"
+      VALUE "FileVersion",      "1.00\0"
+      VALUE "InternalName",     "CompileRunJava\0"
+      VALUE "OriginalFilename", "CompileRunJava.exe\0"
+      VALUE "LegalCopyright",   "Copyright 2021 xsoft\0"
+      VALUE "LegalTrademarks",  "CompileRunJava is a trademark of xsoft\0"
+      VALUE "ProductName",      "CompileRunJava\0"
+      VALUE "ProductVersion",   "1.00\0"
+      VALUE "Comments",         "CompileRunJava made with PB/Win.\0"
+    END
+  END
+END
+
+// to XP Theme enable the game..
+1 24 "xptheme.xml"

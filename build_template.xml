@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="[projectname]" default="clean" basedir="[basedir]">
+  <property name="build" value="."></property>
+  <property name="release" value="jar"></property>
+  <property name="dist" value="${release}/${ant.project.name}.jar"></property>
+  <property name="src" value="[src]"></property>
+  <property name="classes" value="relclasses"></property>
+  <property name="lib" value="[lib]"></property>
+  
+  <path id="classpath">
+    <fileset dir="${lib}">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+
+    <!-- Create output directory. -->
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${lib}"/>
+        <mkdir dir="${basedir}/jar"/>
+    </target>
+ 
+    
+  <!-- Compile and JAR -->
+    <target name="all" depends="init">
+        <antcall target="java.compile"/>
+        <antcall target="java.jar"/>
+    </target>
+ 
+    <!-- Recompile everything and JAR -->
+    <target name="rebuild" depends="init">
+        <antcall target="cleanall"/>
+        <antcall target="java.compile"/>
+        <antcall target="java.jar"/>
+    </target>
+  
+  <target name="clean">
+    <delete includeemptydirs="true">
+      <fileset file="${dist}">
+        <include name="${ant.project.name}.jar"/>
+      </fileset>
+    </delete>
+  </target>
+   
+   <target name="cleanall">
+    <delete includeemptydirs="true">
+      <fileset dir="${classes}" >
+        <include name="**/*"/>
+      </fileset>
+      <fileset file="${dist}">
+        <!--<include name="tdm_conversion.jar"/>-->
+      </fileset>
+    </delete>
+  </target>
+  <target name="run">
+    <java classname="[mainpath]" fork="yes">
+      <!--<arg value="-h"/>-->
+      [args]
+      <classpath>
+          <pathelement location="${release}/${ant.project.name}.jar"/>
+          <!--<pathelement location="${lib}/sdrc_evista.jar"/>-->
+          [jars]
+        </classpath>
+    </java>
+    
+  </target>
+  <target name="java.compile" depends="init,clean" description="Compile java source code">
+    <javac classpathref="classpath" srcdir="${src}" destdir="${classes}">
+      <compilerarg line="-encoding [encode] "/>
+    </javac>
+    <copy todir="${classes}">
+      <fileset dir="${src}">
+        <include name="**/*.properties" />
+        <include name="**/*.xml"/>
+        <include name="**/*.png"/>
+      </fileset>
+    </copy>
+  </target>
+
+  
+  <target name="java.jar" depends="java.compile" description="Create JAR archieves">
+    <jar destfile="${dist}" manifest="META-INF/manifest.mf">    
+      <fileset dir="${classes}">
+        <include name="**/*"/>
+        <exclude name="test/**/*"/>
+      </fileset> 
+     </jar>
+  </target>
+</project>
